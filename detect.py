@@ -179,7 +179,23 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
             LOGGER.info(f'{s}Done. ({t3 - t2:.3f}s)')
 
             # Stream results
-            im0 = annotator.result()
+            font = cv2.FONT_HERSHEY_SIMPLEX
+            localisation = (10,40)
+            fontScale              = 1
+            fontColor              = (255,255,255)
+            thickness              = 1
+            lineType               = 2
+
+            fps = f'{t3 - t2:}'
+            fps = 1/float(fps)
+            fps = int(fps)
+            cv2.putText(im0,'FPS:' + str(fps),
+            localisation,
+            font, 
+            fontScale,
+            fontColor,
+            thickness,
+            lineType)
             if view_img:
                 cv2.imshow(str(p), im0)
                 cv2.waitKey(1)  # 1 millisecond
