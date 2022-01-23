@@ -1,0 +1,5 @@
+val: ../kaggle/images/val
+
+nc: 3
+
+names: ['wm', 'wim', 'without_mask']
